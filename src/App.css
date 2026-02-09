@@ -37,3 +37,8 @@
         transform: rotate(360deg);
     }
 }
+#secretSection {
+    position: relative;
+    bottom: 0;
+    background-color: #282c34;
+}
