@@ -9,9 +9,23 @@ function App(): React.JSX.Element {
             </header>
             <p>
                 Edit <code>src/App.tsx</code> and save. This page will
-                automatically reload. sss
+                automatically reload.
             </p>
-            <div id="secretSectio">Bens Super Cool section</div>
+            <div
+                id="secretSection"
+                onClick={() => {
+                    var secret = document.getElementById("secretSection");
+                    if (secret) {
+                        if (secret.style.background == "white") {
+                            secret.style.background = "black";
+                        } else {
+                            secret.style.background = "white";
+                        }
+                    }
+                }}
+            >
+                Hello World
+            </div>
         </div>
     );
 }
