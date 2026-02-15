@@ -1,11 +1,14 @@
 import React from "react";
 import "./App.css";
+import { Button } from "react-bootstrap";
 
 function App(): React.JSX.Element {
     return (
         <div className="App">
             <header className="App-header">
-                UD CISC275 with React Hooks and TypeScript - Benjamin Zifcak
+                <h1>
+                    UD CISC275 with React Hooks and TypeScript - Benjamin Zifcak
+                </h1>
             </header>
             <p>
                 Edit <code>src/App.tsx</code> and save. This page will
@@ -26,6 +29,20 @@ function App(): React.JSX.Element {
             >
                 Hello World
             </div>
+            <img src="/BunniesKissing" alt="a photo of two bunnies kissing" />
+            Reasons Bunnies are the best animal:
+            <ol>
+                <li>They are super duper soft</li>
+                <li>Bugs Bunny</li>
+                <li>Minecraft speed potion</li>
+            </ol>
+            <Button
+                onClick={() => {
+                    console.log("Hello World!");
+                }}
+            >
+                Log Hello World
+            </Button>
         </div>
     );
 }
