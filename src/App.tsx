@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { Button } from "react-bootstrap";
-
+import Bunnies from "./BunniesKissing.webp";
 function App(): React.JSX.Element {
     return (
         <div className="App">
@@ -31,10 +31,11 @@ function App(): React.JSX.Element {
             </div>
             <div className="swag">
                 <img
-                    src="https://th.bing.com/th/id/OIP.Vu2Bi22L0LicelRa4C6RggHaE6?w=211&h=180&c=7&r=0&o=7&dpr=1.2&pid=1.7&rm=3"
-                    alt="a photo of two bunnies kissing"
+                    src={Bunnies}
+                    alt="a photo of two bunnies kis sing"
+                    height="200px"
                 />
-                <div>
+                <div style={{ margin: "5px" }}>
                     Reasons Bunnies are the best animal:
                     <ol>
                         <li>They are super duper soft</li>
