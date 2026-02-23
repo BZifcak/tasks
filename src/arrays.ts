@@ -5,7 +5,7 @@
  * the number twice.
  */
 export function bookEndList(numbers: number[]): number[] {
-    return numbers;
+    return numbers.length ? [numbers[0], numbers[numbers.length - 1]] : [];
 }
 
 /**
@@ -13,7 +13,7 @@ export function bookEndList(numbers: number[]): number[] {
  * number has been tripled (multiplied by 3).
  */
 export function tripleNumbers(numbers: number[]): number[] {
-    return numbers;
+    return [...numbers].map((k: number) => k * 3);
 }
 
 /**
@@ -21,27 +21,42 @@ export function tripleNumbers(numbers: number[]): number[] {
  * the number cannot be parsed as an integer, convert it to 0 instead.
  */
 export function stringsToIntegers(numbers: string[]): number[] {
-    return [];
+    return [...numbers].map((s: string): number =>
+        isNaN(parseInt(s)) ? 0 : parseInt(s),
+    );
 }
-
+function removeDollarCallBack(s: string): string {
+    if (s.length > 0 && s.at(0) === "$") {
+        return s.substring(1);
+    } else {
+        return s;
+    }
+}
 /**
  * Consume an array of strings and return them as numbers. Note that
  * the strings MAY have "$" symbols at the beginning, in which case
  * those should be removed. If the result cannot be parsed as an integer,
  * convert it to 0 instead.
  */
-// Remember, you can write functions as lambdas too! They work exactly the same.
+// Remember, you can write functions as lambdas too! They work exactly the same.removeDollars
 export const removeDollars = (amounts: string[]): number[] => {
-    return [];
+    return [...amounts]
+        .map((s: string): string =>
+            s.length && s[0] === "$" ? s.substring(1) : s,
+        )
+        .map((s: string): number => (isNaN(parseInt(s)) ? 0 : parseInt(s)));
 };
-
 /**
  * Consume an array of messages and return a new list of the messages. However, any
  * string that ends in "!" should be made uppercase. Also, remove any strings that end
  * in question marks ("?").
  */
 export const shoutIfExclaiming = (messages: string[]): string[] => {
-    return [];
+    return [...messages]
+        .filter((s: string) => s.charAt(s.length - 1) !== "?")
+        .map((s: string): string =>
+            s.length && s[s.length - 1] === "!" ? s.toUpperCase() : s,
+        );
 };
 
 /**
@@ -49,7 +64,7 @@ export const shoutIfExclaiming = (messages: string[]): string[] => {
  * 4 letters long.
  */
 export function countShortWords(words: string[]): number {
-    return 0;
+    return [...words].filter((s: string) => s.length < 4).length;
 }
 
 /**
@@ -58,7 +73,11 @@ export function countShortWords(words: string[]): number {
  * then return true.
  */
 export function allRGB(colors: string[]): boolean {
-    return false;
+    const validColors = ["red", "blue", "green"];
+    return (
+        colors.length ===
+        [...colors].filter((s: string) => validColors.includes(s)).length
+    );
 }
 
 /**
