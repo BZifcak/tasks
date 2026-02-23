@@ -88,9 +88,20 @@ export function allRGB(colors: string[]): boolean {
  * And the array [] would become "0=0".
  */
 export function makeMath(addends: number[]): string {
-    return "";
+    const sum: number = [...addends].reduce((s: number, x: number) => s + x, 0);
+    const toStringed: string =
+        [...addends].map((n: number) => n.toString()).join("+") ?
+            [...addends].map((n: number) => n.toString()).join("+")
+        :   "0";
+    return sum + "=" + toStringed;
 }
-
+/*{
+            if (v < 0) {
+                return currentIndex;
+            } else {
+                return -1;
+            }
+        },*/
 /**
  * Consumes an array of numbers and produces a new array of the same numbers,
  * with one difference. After the FIRST negative number, insert the sum of all
@@ -101,5 +112,30 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
-    return [];
+    const negIndex: number = [...values].reduce(
+        (returnIndex: number, v: number, currentIndex: number) =>
+            v < 0 && returnIndex === -1 ? currentIndex : returnIndex,
+        -1,
+    );
+
+    if (negIndex === -1) {
+        const sum: number = [...values].reduce(
+            (s: number, x: number) => s + x,
+            0,
+        );
+        return [...values, sum];
+    } else {
+        const sum: number = [...values].reduce(
+            (s: number, x: number, index: number) =>
+                index < negIndex ? s + x : s,
+            0,
+        );
+        if (negIndex + 1 < values.length) {
+            const addended = [...values];
+            addended.splice(negIndex + 1, 0, sum);
+            return addended;
+        } else {
+            return [-1];
+        }
+    }
 }
