@@ -25,13 +25,6 @@ export function stringsToIntegers(numbers: string[]): number[] {
         isNaN(parseInt(s)) ? 0 : parseInt(s),
     );
 }
-function removeDollarCallBack(s: string): string {
-    if (s.length > 0 && s.at(0) === "$") {
-        return s.substring(1);
-    } else {
-        return s;
-    }
-}
 /**
  * Consume an array of strings and return them as numbers. Note that
  * the strings MAY have "$" symbols at the beginning, in which case
