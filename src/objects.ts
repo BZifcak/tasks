@@ -64,7 +64,7 @@ export function toShortForm(question: Question): string {
 export function toMarkdown(question: Question): string {
     return  "# " + question.name + "\n"
     + question.body +
-    question.options.reduce((str:string, option:string, i: number):string=> str+= "\n- " + option ,"");
+    question.options.reduce((str:string, option:string):string=> str+= "\n- " + option ,"");
 }
 
 /**
@@ -102,7 +102,7 @@ export function duplicateQuestion(id: number, oldQuestion: Question): Question {
  * Check out the subsection about "Nested Fields" for more information.
  */
 export function addOption(question: Question, newOption: string): Question {
-    return {...question, options: [...question.options,newOption],};;
+    return {...question, options: [...question.options,newOption],};
 }
 
 /**
