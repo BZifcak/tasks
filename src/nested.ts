@@ -149,7 +149,7 @@ export function changeQuestionTypeById(
     targetId: number,
     newQuestionType: QuestionType
 ): Question[] {
-    return questions.map((question:Question):Question=>question.id ===targetId?{...question,type :newQuestionType,options: question.type === "multiple_choice_question"&& newQuestionType !=="multiple_choice_question"? []:question.options  }:{...question});;
+    return questions.map((question:Question):Question=>question.id ===targetId?{...question,type :newQuestionType,options: question.type === "multiple_choice_question"&& newQuestionType !=="multiple_choice_question"? []:question.options  }:{...question});
     //As clause puts it, I'm playing 'coding golf'
 }
 
