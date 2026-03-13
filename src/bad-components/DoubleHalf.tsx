@@ -25,7 +25,7 @@ export function DoubleHalf(): React.JSX.Element {
     const [dhValue, setDhValue] = useState<number>(10);
     return (
         <div>
-            <h3>Double Half</h3>
+            <p>Double Half</p>
             <div>
                 The current value is: <span>{dhValue}</span>
             </div>
