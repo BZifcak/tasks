@@ -8,6 +8,11 @@ import { CycleHoliday } from "./components/CycleHoliday";
 import { Counter } from "./components/Counter";
 import { Button } from "react-bootstrap";
 import Bunnies from "./BunniesKissing.webp";
+import { DoubleHalf } from "./bad-components/DoubleHalf";
+import { ColoredBox } from "./bad-components/ColoredBox";
+import { ShoveBox } from "./bad-components/ShoveBox";
+import { ChooseTeam } from "./bad-components/ChooseTeam";
+
 function App(): React.JSX.Element {
     return (
         <div className="App" id="app">
@@ -17,6 +22,14 @@ function App(): React.JSX.Element {
                     UD CISC275 with React Hooks and TypeScript - Benjamin Zifcak
                 </h1>
             </header>
+            <hr></hr>
+            {/* <DoubleHalf></DoubleHalf> */}
+            <hr></hr>
+            <ChooseTeam></ChooseTeam>
+            <hr></hr>
+            <ColoredBox></ColoredBox>
+            <hr></hr>
+            <ShoveBox></ShoveBox>
             <hr></hr>
             <Counter></Counter>
             <hr />
